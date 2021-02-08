@@ -1,58 +1,38 @@
 package homework1;
 
+import java.util.*;
+
 public class Main {
-    private static void Array(String array[][]) throws MyArraySizeException {
-        if (array.length < 4 || array.length > 4) {
-            throw new MyArraySizeException("Не верный размер массива");
-
-        } else {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i].length > 4 || array[i].length < 4) {
-
-                    throw new MyArraySizeException("Не верный размер массива");
-                }
-
-
-            }
-
-        }
-    }
-
-  private static void SumElement(String array[][]) {
-        int summ = 0;
-        for (int j = 0; j < array.length; j++) {
-            for (int y = 0; y < array[j].length; y++) {
-
-
-                int arr = Integer.parseInt(array[j][y].trim());
-                summ = summ + arr;
-            }
-            System.out.println(summ);
-            summ = 0;
-
-        }
-
-    }
-
-
+    //1 Задание
     public static void main(String[] args) {
-        String strings[][] = new String[4][4];
+        String[] words = {"sorry", "horror", "sorry", "horror", "misery", "misery", "misery", "sorry", "color", "garbage", "lory", "locon", "savage", "beauty", "god", "robot", "terror", "sorry", "mask", "sweety", "fats", "sorry", "sorry"};
+
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            int val = map.getOrDefault(words[i], 0);
+            map.put(words[i], val + 1);
+
+        }
+        System.out.println(map);
+        Set<String> set = new HashSet<>();
+        for (int j = 0; j < words.length; j++) {
+            set.add(words[j]);
+        }
+
+        System.out.println(set);
 
 
-        try {
-            SumElement(strings);
-        }catch (MaArrayDataException e){
-            System.out.println(e.getCause());
-        }
-        try {
-            Array(strings);
-        } catch (MyArraySizeException e) {
-            e.printStackTrace();
-        }
+
+
 
 
     }
-
 }
+
+
+
+
+
+
 
 
